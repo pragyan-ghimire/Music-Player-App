@@ -1,5 +1,8 @@
 package com.example.jetmusicplayer.widgets
 
+import android.media.MediaPlayer
+import android.util.Log
+import android.widget.Toast
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
@@ -27,6 +30,7 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
@@ -34,6 +38,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import com.example.jetmusicplayer.components.MusicButton
+import com.example.jetmusicplayer.data.SongsData
 
 //Play Screen
 
@@ -92,11 +97,12 @@ fun PlayScreenTopAppBar(
         })
 }
 
-@Preview(showBackground = true)
+//@Preview(showBackground = true)
 @Composable
 fun MusicButtonRow(
     modifier: Modifier = Modifier,
-    onButtonClick: () -> Unit = {}
+    onButtonClick: () -> Unit = {},
+    mediaPlayer: MediaPlayer
 ) {
     val playState = remember {
         mutableStateOf(false)
@@ -116,6 +122,18 @@ fun MusicButtonRow(
             checked = playState.value,
             onCheckedChange = {
                 playState.value = !playState.value
+                if(it){
+                    if (mediaPlayer.currentPosition!=0){
+                        mediaPlayer.seekTo(mediaPlayer.currentPosition)
+                        mediaPlayer.start()
+                    }
+                    mediaPlayer.start()
+                    Log.d("media", "media Started")
+                }
+                else{
+                    mediaPlayer.pause()
+                    Log.d("media", "media pause")
+                }
             }
         ) {
 
