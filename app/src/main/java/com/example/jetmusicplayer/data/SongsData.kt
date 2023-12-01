@@ -8,6 +8,7 @@ data class SongsData(
     val songName: String,
     val authorName: String,
     val duration: String,
+    val media: Int,
 )
 
 fun getSongsData(): List<SongsData>{
@@ -15,58 +16,66 @@ fun getSongsData(): List<SongsData>{
         SongsData(
             id="1",
             songImg = R.drawable.profie_picture,
-            songName = "A Thousand Years",
-            authorName = "Christina Perri",
-            duration="3:14"
+            songName = "Dandelions",
+            authorName = "Ruth_B",
+            duration="00:00",
+            media=R.raw.Ruth_B_Dandelions
         ),
         SongsData(
             id="2",
             songImg = R.drawable.profie_picture,
-            songName = "Perfect",
-            authorName = "Ed Sheeran",
-            duration="2:14"
+            songName = "Human",
+            authorName = "Ragnan Bone",
+            duration="00:00",
+            media = R.raw.Human
         ),
         SongsData(
             id="3",
             songImg = R.drawable.profie_picture,
-            songName = "Audio",
+            songName = "Ram Siya Ram",
             authorName = "Unknown author",
-            duration="1:14"
+            duration="00:00",
+            media=R.raw.Ram_Siya_Ram
         ),
         SongsData(
             id="4",
             songImg = R.drawable.profie_picture,
-            songName = "Main rahoon na rahoon",
-            authorName = "Arjit Singh",
-            duration="3:14"
+            songName = "Neele Neele Ambar",
+            authorName = "Kishor Kumar",
+            duration="3:14",
+            media=R.raw.Neele_Neele_Ambar
         ),
         SongsData(
             id="5",
             songImg = R.drawable.profie_picture,
-            songName = "A Thousand Years",
-            authorName = "Christina Perri",
-            duration="3:14"
+            songName = "Me Myself and I",
+            authorName = "Nightcore",
+            duration="3:14",
+            media = R.raw.Me_Myself_and_I
         ),
         SongsData(
             id="6",
             songImg = R.drawable.profie_picture,
-            songName = "Perfect",
-            authorName = "Ed Sheeran",
-            duration="2:14"
+            songName = "Naach Meri Jaan",
+            authorName = "Unknown Author",
+            duration="2:14",
+            media = R.raw.Naach_Meri_Jaan
         ),
         SongsData(
             id="7",
             songImg = R.drawable.profie_picture,
-            songName = "A Thousand Years",
-            authorName = "Christina Perri",
-            duration="3:14"
+            songName = "Samay Samjhayega",
+            authorName = "Unknown Author",
+            duration="3:14",
+            media = R.raw.Samay_Samjhayega
         ),
         SongsData(
             id="8",
             songImg = R.drawable.profie_picture,
-            songName = "A Thousand Years",
-            authorName = "Christina Perri",
-            duration="3:14"
+            songName = "Tum Prem Ho",
+            authorName = "Unknown Author",
+            duration="3:14",
+            media=R.raw.Tum_Prem_Ho
         ),
     )
 }
