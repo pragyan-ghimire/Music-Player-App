@@ -19,7 +19,7 @@ fun getSongsData(): List<SongsData>{
             songName = "Dandelions",
             authorName = "Ruth_B",
             duration="00:00",
-            media=R.raw.Ruth_B_Dandelions
+            media=R.raw.ruth_b_dandelions
         ),
         SongsData(
             id="2",
@@ -27,7 +27,7 @@ fun getSongsData(): List<SongsData>{
             songName = "Human",
             authorName = "Ragnan Bone",
             duration="00:00",
-            media = R.raw.Human
+            media = R.raw.human
         ),
         SongsData(
             id="3",
@@ -35,7 +35,7 @@ fun getSongsData(): List<SongsData>{
             songName = "Ram Siya Ram",
             authorName = "Unknown author",
             duration="00:00",
-            media=R.raw.Ram_Siya_Ram
+            media=R.raw.ram_siya_ram
         ),
         SongsData(
             id="4",
@@ -43,7 +43,7 @@ fun getSongsData(): List<SongsData>{
             songName = "Neele Neele Ambar",
             authorName = "Kishor Kumar",
             duration="3:14",
-            media=R.raw.Neele_Neele_Ambar
+            media=R.raw.neele_neele_ambar
         ),
         SongsData(
             id="5",
@@ -51,7 +51,7 @@ fun getSongsData(): List<SongsData>{
             songName = "Me Myself and I",
             authorName = "Nightcore",
             duration="3:14",
-            media = R.raw.Me_Myself_and_I
+            media = R.raw.me_myself_and_i
         ),
         SongsData(
             id="6",
@@ -59,7 +59,7 @@ fun getSongsData(): List<SongsData>{
             songName = "Naach Meri Jaan",
             authorName = "Unknown Author",
             duration="2:14",
-            media = R.raw.Naach_Meri_Jaan
+            media = R.raw.naach_meri_jaan
         ),
         SongsData(
             id="7",
@@ -67,7 +67,7 @@ fun getSongsData(): List<SongsData>{
             songName = "Samay Samjhayega",
             authorName = "Unknown Author",
             duration="3:14",
-            media = R.raw.Samay_Samjhayega
+            media = R.raw.samay_samjhayega
         ),
         SongsData(
             id="8",
@@ -75,7 +75,15 @@ fun getSongsData(): List<SongsData>{
             songName = "Tum Prem Ho",
             authorName = "Unknown Author",
             duration="3:14",
-            media=R.raw.Tum_Prem_Ho
+            media=R.raw.tum_prem_ho
+        ),
+        SongsData(
+            id="9",
+            songImg = R.drawable.profie_picture,
+            songName = "Rumors",
+            authorName = "Neffex",
+            duration="3:14",
+            media=R.raw.neffex_rumors
         ),
     )
 }
