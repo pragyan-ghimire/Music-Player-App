@@ -2,9 +2,7 @@ package com.example.jetmusicplayer.widgets
 
 import android.media.MediaPlayer
 import android.util.Log
-import android.widget.Toast
 import androidx.compose.foundation.background
-import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -30,15 +28,12 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import com.example.jetmusicplayer.components.MusicButton
-import com.example.jetmusicplayer.data.SongsData
 
 //Play Screen
 
@@ -48,7 +43,8 @@ import com.example.jetmusicplayer.data.SongsData
 fun PlayScreenTopAppBar(
     songName: String = "Song Name",
     onDetailsClicked: () -> Unit = {},
-    navController: NavController
+    navController: NavController,
+    mediaPlayer: MediaPlayer
 ) {
     TopAppBar(
         modifier = Modifier.fillMaxWidth(),
@@ -64,6 +60,7 @@ fun PlayScreenTopAppBar(
                     icon = Icons.Filled.ArrowBack,
                     description = "Back Arrow",
                     onClick = {
+                        mediaPlayer.stop()
                         navController.popBackStack()
                     }
                 )
@@ -102,7 +99,8 @@ fun PlayScreenTopAppBar(
 fun MusicButtonRow(
     modifier: Modifier = Modifier,
     onButtonClick: () -> Unit = {},
-    mediaPlayer: MediaPlayer
+    mediaPlayer: MediaPlayer,
+
 ) {
     val playState = remember {
         mutableStateOf(false)
@@ -126,7 +124,7 @@ fun MusicButtonRow(
                     if (mediaPlayer.currentPosition!=0){
                         mediaPlayer.seekTo(mediaPlayer.currentPosition)
                         mediaPlayer.start()
-                    }
+                    }else
                     mediaPlayer.start()
                     Log.d("media", "media Started")
                 }
