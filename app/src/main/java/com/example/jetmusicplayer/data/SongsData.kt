@@ -15,7 +15,7 @@ fun getSongsData(): List<SongsData>{
     return listOf(
         SongsData(
             id="1",
-            songImg = R.drawable.profie_picture,
+            songImg = R.drawable.dandelions,
             songName = "Dandelions",
             authorName = "Ruth_B",
             duration="00:00",
@@ -23,7 +23,7 @@ fun getSongsData(): List<SongsData>{
         ),
         SongsData(
             id="2",
-            songImg = R.drawable.profie_picture,
+            songImg = R.drawable.human,
             songName = "Human",
             authorName = "Ragnan Bone",
             duration="00:00",
@@ -31,7 +31,7 @@ fun getSongsData(): List<SongsData>{
         ),
         SongsData(
             id="3",
-            songImg = R.drawable.profie_picture,
+            songImg = R.drawable.ram_siya_ram,
             songName = "Ram Siya Ram",
             authorName = "Unknown author",
             duration="00:00",
@@ -39,7 +39,7 @@ fun getSongsData(): List<SongsData>{
         ),
         SongsData(
             id="4",
-            songImg = R.drawable.profie_picture,
+            songImg = R.drawable.neele_neele_ambar,
             songName = "Neele Neele Ambar",
             authorName = "Kishor Kumar",
             duration="3:14",
@@ -47,7 +47,7 @@ fun getSongsData(): List<SongsData>{
         ),
         SongsData(
             id="5",
-            songImg = R.drawable.profie_picture,
+            songImg = R.drawable.me_myself_i,
             songName = "Me Myself and I",
             authorName = "Nightcore",
             duration="3:14",
@@ -55,7 +55,7 @@ fun getSongsData(): List<SongsData>{
         ),
         SongsData(
             id="6",
-            songImg = R.drawable.profie_picture,
+            songImg = R.drawable.nach_meri_jaan,
             songName = "Naach Meri Jaan",
             authorName = "Unknown Author",
             duration="2:14",
@@ -63,7 +63,7 @@ fun getSongsData(): List<SongsData>{
         ),
         SongsData(
             id="7",
-            songImg = R.drawable.profie_picture,
+            songImg = R.drawable.samaya_samjhayega,
             songName = "Samay Samjhayega",
             authorName = "Unknown Author",
             duration="3:14",
@@ -71,7 +71,7 @@ fun getSongsData(): List<SongsData>{
         ),
         SongsData(
             id="8",
-            songImg = R.drawable.profie_picture,
+            songImg = R.drawable.tum_prem_ho,
             songName = "Tum Prem Ho",
             authorName = "Unknown Author",
             duration="3:14",
@@ -79,7 +79,7 @@ fun getSongsData(): List<SongsData>{
         ),
         SongsData(
             id="9",
-            songImg = R.drawable.profie_picture,
+            songImg = R.drawable.rumors,
             songName = "Rumors",
             authorName = "Neffex",
             duration="3:14",
