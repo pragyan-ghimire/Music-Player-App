@@ -3,6 +3,7 @@ package com.example.jetmusicplayer.widgets
 import android.media.MediaPlayer
 import android.util.Log
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -28,12 +29,14 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import com.example.jetmusicplayer.components.MusicButton
+import com.example.jetmusicplayer.data.SongsData
 
 //Play Screen
 
@@ -99,9 +102,10 @@ fun PlayScreenTopAppBar(
 fun MusicButtonRow(
     modifier: Modifier = Modifier,
     onButtonClick: () -> Unit = {},
-    mediaPlayer: MediaPlayer
+    mediaPlayer: MediaPlayer,
 
 ) {
+    val context= LocalContext.current
     val playState = remember {
         mutableStateOf(false)
     }
@@ -113,13 +117,16 @@ fun MusicButtonRow(
 
         MusicButton(
             icon = Icons.Default.SkipPrevious,
-            description = "Previous song"
+            description = "Previous song",
+            modifier = Modifier.clickable {
+
+            }
         )
         IconToggleButton(
             checked = playState.value,
             onCheckedChange = {
                 playState.value = !playState.value
-                if(it){
+                if(playState.value){
 //                    if (mediaPlayer.currentPosition!=0){
 //                        mediaPlayer.seekTo(mediaPlayer.currentPosition)
 //                        mediaPlayer.start()
@@ -133,15 +140,21 @@ fun MusicButtonRow(
                 }
             }
         ) {
-
+            mediaPlayer.setOnCompletionListener{
+                it.pause()
+                it.seekTo(0)
+                playState.value=!playState.value
+                Log.d("media", "Completed ")
+            }
             Icon(
                 imageVector = if (playState.value) {
                     Icons.Default.Pause
                 } else {
                     Icons.Default.PlayArrow
-                }, contentDescription = "Previous Song",
-                modifier = Modifier.size(50.dp)
-                    .background(color =MaterialTheme.colorScheme.primary, shape = CircleShape ),
+                }, contentDescription = "Play/Pause/Resume",
+                modifier = Modifier
+                    .size(50.dp)
+                    .background(color = MaterialTheme.colorScheme.primary, shape = CircleShape),
                 tint = MaterialTheme.colorScheme.background
             )
         }

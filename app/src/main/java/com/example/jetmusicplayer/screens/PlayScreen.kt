@@ -134,7 +134,7 @@ fun PlayScreen(
                     
 
                     sliderState.value=mediaPlayer.currentPosition.toFloat()
-                    Log.d("PlayScreen", "SliderState: $sliderState")
+//                    Log.d("PlayScreen", "SliderState: $sliderState")
 
                     Slider(
                         value = sliderState.value++,
@@ -144,8 +144,7 @@ fun PlayScreen(
                         },
                         valueRange = 0f..mediaPlayer.duration.toFloat(),
                     )
-
-                    Log.d("PlayScreen", "Minute: $minute, Second: $sec")
+//                    Log.d("PlayScreen", "Minute: $minute, Second: $sec")
 
 
 
