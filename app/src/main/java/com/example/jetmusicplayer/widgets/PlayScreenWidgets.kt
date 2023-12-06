@@ -99,13 +99,12 @@ fun PlayScreenTopAppBar(
 fun MusicButtonRow(
     modifier: Modifier = Modifier,
     onButtonClick: () -> Unit = {},
-    mediaPlayer: MediaPlayer,
+    mediaPlayer: MediaPlayer
 
 ) {
     val playState = remember {
         mutableStateOf(false)
     }
-
     Row(
         modifier = modifier,
         verticalAlignment = Alignment.CenterVertically,
@@ -121,10 +120,10 @@ fun MusicButtonRow(
             onCheckedChange = {
                 playState.value = !playState.value
                 if(it){
-                    if (mediaPlayer.currentPosition!=0){
-                        mediaPlayer.seekTo(mediaPlayer.currentPosition)
-                        mediaPlayer.start()
-                    }else
+//                    if (mediaPlayer.currentPosition!=0){
+//                        mediaPlayer.seekTo(mediaPlayer.currentPosition)
+//                        mediaPlayer.start()
+//                    }else
                     mediaPlayer.start()
                     Log.d("media", "media Started")
                 }

@@ -2,8 +2,9 @@ package com.example.jetmusicplayer.screens
 
 import android.media.MediaPlayer
 import android.util.Log
+import android.widget.MediaController.MediaPlayerControl
 import androidx.compose.foundation.Image
-import androidx.compose.foundation.background
+import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -15,7 +16,6 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material3.ExperimentalMaterial3Api
-import androidx.compose.material3.LinearProgressIndicator
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Slider
@@ -27,10 +27,10 @@ import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
@@ -41,7 +41,6 @@ import androidx.navigation.compose.rememberNavController
 import com.example.jetmusicplayer.data.getSongsData
 import com.example.jetmusicplayer.widgets.MusicButtonRow
 import com.example.jetmusicplayer.widgets.PlayScreenTopAppBar
-import kotlinx.coroutines.delay
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -62,7 +61,6 @@ fun PlayScreen(
         mutableStateOf(0f)
     }
 
-
     DisposableEffect(mediaPlayer) {
         onDispose {
             mediaPlayer.release()
@@ -76,7 +74,7 @@ fun PlayScreen(
     val rem: Int = mediaPlayer.duration % 60000
 //    Log.i("duration", "PlayScreen: $rem")
     val sec = rem.toString().substring(0, 2)
-    Log.i("duration", "PlayScreen: $sec")
+//    Log.i("duration", "PlayScreen: $sec")
 
 
 
@@ -131,21 +129,25 @@ fun PlayScreen(
                     horizontalArrangement = Arrangement.SpaceBetween
                 ) {
 
-                    sliderState.value = mediaPlayer.currentPosition.toFloat()
+                    Text(text = "$minute:$sec")
+                    Spacer(modifier = Modifier.width(8.dp))
+                    
+
+                    sliderState.value=mediaPlayer.currentPosition.toFloat()
+                    Log.d("PlayScreen", "SliderState: $sliderState")
 
                     Slider(
-                        //TODO: update slider and Text(text = "$minute:$sec") not showing 
-                        value = sliderState.value,
+                        value = sliderState.value++,
                         onValueChange = {
-                            sliderState.value =it
+                            sliderState.value=it
+                            mediaPlayer.seekTo(it.toInt())
                         },
-                        onValueChangeFinished = {
-                            mediaPlayer.seekTo(sliderState.value.toInt())
-                        },
-                        valueRange = 0f..mediaPlayer.duration.toFloat()
+                        valueRange = 0f..mediaPlayer.duration.toFloat(),
                     )
+
                     Log.d("PlayScreen", "Minute: $minute, Second: $sec")
-                    Text(text = "$minute:$sec")
+
+
 
                 }
 
